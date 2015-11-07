@@ -1,5 +1,18 @@
+require "./phone_number.rb"
 class Contact
   attr_writer :first_name, :middle_name, :last_name
+  attr_reader :phone_numbers
+  
+  def initialize()
+    @phone_numbers = []
+  end
+  
+  def add_phone_number(kind, number)
+    phone_number = PhoneNumber.new
+    phone_number.kind = kind
+    phone_number.number = number
+    phone_numbers.push(phone_number)
+  end
   
   def first_name
     @first_name
@@ -54,11 +67,17 @@ class Contact
         first_last
     end
   end
+  
+  def print_phone_numbers
+    puts "Phone Numbers"
+    phone_numbers.each { |phone_number| puts phone_number}
+  end
 end
 
 harry = Contact.new
 harry.first_name = "Harry"
 harry.middle_name = "R"
 harry.last_name = "Oliver"
-puts harry.to_s('full_name')
-puts harry.to_s('last_first')
+harry.add_phone_number("Work", "07866384844")
+harry.add_phone_number("Play", "07866456732")
+harry.print_phone_numbers
