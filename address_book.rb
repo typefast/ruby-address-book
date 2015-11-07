@@ -40,6 +40,19 @@ class AddressBook
     print_results("Phone search results (#{search})", results)
   end
   
+  def find_by_address(query)
+    results = []
+    search = query.downcase
+    contacts.each do |contact|
+      contact.addresses.each do |address|
+        if address.to_s('long').downcase.include?(search)
+          results.push(contact) unless results.include?(contact)
+        end
+      end
+    end
+    print_results("Address search results (#{search})", results)
+  end
+  
   def print_contact_list
     puts "Contact List"
     contacts.each do |contact|
@@ -58,5 +71,6 @@ harry.add_phone_number("Play", "07866456732")
 harry.add_address("home", "main st", "", "Oxford", "Oxon", "123456")
 address_book.contacts.push(harry)
 #address_book.print_contact_list
-address_book.find_by_name('l')
-address_book.find_by_phone_number("07")
+#address_book.find_by_name('l')
+#address_book.find_by_phone_number("07")
+address_book.find_by_address("main")
