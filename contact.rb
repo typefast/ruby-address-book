@@ -92,12 +92,4 @@ class Contact
   end
 end
 
-harry = Contact.new
-harry.first_name = "Harry"
-harry.middle_name = "R"
-harry.last_name = "Oliver"
-harry.add_phone_number("Work", "07866384844")
-harry.add_phone_number("Play", "07866456732")
-harry.add_address("home", "main st", "", "Oxford", "Oxon", "123456")
-harry.print_phone_numbers
-harry.print_addresses
+
