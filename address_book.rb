@@ -1,9 +1,23 @@
 require "./contact.rb"
+require "yaml"
 class AddressBook
   attr_reader :contacts
   
   def initialize()
     @contacts = []
+    open()
+  end
+  
+  def open
+    if File.exists?("contacts.yml")
+      @contacts = YAML.load_file("contacts.yml")
+    end
+  end
+  
+  def save
+    File.open("contacts.yml", "w") do |file|
+      file.write(contacts.to_yaml)
+    end
   end
   
   def run
@@ -19,6 +33,7 @@ class AddressBook
       when 'a'
         add_contact
       when 'e'
+      save()
         break
       when 'p'
         print_contact_list

@@ -1,0 +1,32 @@
+---
+- !ruby/object:Contact
+  phone_numbers: []
+  addresses:
+  - !ruby/object:Address
+    kind: Home
+    street_1: sea
+    street_2: ''
+    city: no where
+    state: somewhere
+    postal_code: '1235'
+  first_name: Puff
+  middle_name: m
+  last_name: Dragon
+- !ruby/object:Contact
+  phone_numbers:
+  - !ruby/object:PhoneNumber
+    kind: work
+    number: '123456'
+  addresses: []
+  first_name: le
+  middle_name: m
+  last_name: 'on'
+- !ruby/object:Contact
+  phone_numbers:
+  - !ruby/object:PhoneNumber
+    kind: work
+    number: '12345'
+  addresses: []
+  first_name: Jack
+  middle_name: Middle
+  last_name: Rolo
