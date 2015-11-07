@@ -20,12 +20,3 @@ class Address
   end
 end
 
-home = Address.new
-home.kind = "Home"
-home.street_1 = "123 street"
-home.city = "Oxford"
-home.state = "Oxon"
-home.postal_code = "123456"
-puts home.to_s('short')
-puts "*" * 20
-puts home.to_s('long')
